@@ -1,15 +1,28 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {Button} from 'react-native-paper';
+import NfcManager from 'react-native-nfc-manager';
 
 function HomeScreen(props) {
   const {navigation} = props;
+  const [hasNfc, setHasNfc] = React.useState(null);
+  const [enabled, setEnabled] = React.useState(null);
+
+React.useEffect(() => {
+  async function checkNfc() {
+    const supported = await NfcManager.isSupported();
+    if (supported) {
+      await NfcManager.start();
+      setEnabled(await NfcManager.isEnabled());
+    }
+    setHasNfc(supported);
+  }
+  checkNfc();
+}, []);
+
+function renderNfcButtons() {
   return (
-    <View style={styles.wrapper}>
-      <View style={styles.wrapper}>
-        <Text style={styles.bannerText}>Tap-And-Go</Text>
-      </View>
-      <View style={styles.bottom}>
+    <View style={styles.bottom}>
         <Button mode="contained" style={[styles.btn]}
           onPress={() => {
             navigation.navigate('Tag')
@@ -21,6 +34,15 @@ function HomeScreen(props) {
           LINK
         </Button>
       </View>
+  )
+}
+
+  return (
+    <View style={styles.wrapper}>
+      <View style={styles.wrapper}>
+        <Text style={styles.bannerText}>Tap-And-Go</Text>
+      </View>
+        {renderNfcButtons()}
     </View>
   );
 }
