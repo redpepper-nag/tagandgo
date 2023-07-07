@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './Screens/HomeScreen';
 import TagDetailScreen from './Screens/TagDetailScreen';
+import WriteNdefScreen from './Screens/WriteNdefScreen';
 
 const Stack = createNativeStackNavigator();
 
