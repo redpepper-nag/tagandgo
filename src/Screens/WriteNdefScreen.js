@@ -53,7 +53,7 @@ function WriteNdefScreen(props) {
           label="TARGET"
           value={value}
           onChangeText={setValue}
-          autoCapitalize={false}
+          autoCapitalize={'none'}
         />
       </View>
 
