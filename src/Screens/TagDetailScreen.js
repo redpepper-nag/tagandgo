@@ -18,7 +18,11 @@ function TagDetailScreen(props) {
   return (
     <View style={styles.wrapper}>
       {uri ? (
+        <TouchableOpacity onPress={() =>{
+          Linking.openURL(uri);
+        }}>
         <Text>{uri}</Text>
+        </TouchableOpacity>
       ) : (
         <Text>{JSON.stringify(tag, null, 2)}</Text>
       )}
