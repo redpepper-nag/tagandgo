@@ -13,6 +13,7 @@ function AppNavigator() {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Tag" component={TagDetailScreen} />
+        <Stack.Screen name="Write" component={WriteNdefScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
