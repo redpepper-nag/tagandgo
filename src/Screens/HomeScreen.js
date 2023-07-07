@@ -22,7 +22,7 @@ React.useEffect(() => {
 
 function renderNfcButtons() {
   if (hasNfc === null) {
-    return nulll
+    return null
   } else if (!hasNfc) {
     return (
       <View style={styles.wrapper}>
