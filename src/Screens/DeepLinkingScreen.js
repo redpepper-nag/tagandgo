@@ -3,7 +3,7 @@ import {View, Text, StyleSheet} from 'react-native';
 
 function DeepLinkingScreen(props) {
   const {route} = props;
-  const [msg] = route.params;
+  const {msg} = route.params;
 
   return (
     <View style={styles.wrapper}>

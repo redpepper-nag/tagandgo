@@ -23,7 +23,9 @@ function HomeScreen(props) {
 React.useEffect(() =>{
   function handleUrl(url) {
     if (url) {
-      console.warn(url);
+      navigation.navigate('DeepLinking', {
+        msg: url.split('://')[1],
+      });
     }
   }
   Linking.getInitialURL().then(url => {
@@ -37,7 +39,7 @@ React.useEffect(() =>{
   return () => {
     Linking.removeAllListeners('url');
   }
-}, [])
+}, [navigation])
 
   async function readNdef() {
     try {
